@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var expressHandlebars  = require('express-handlebars');
 var path = require('path');
@@ -7,7 +9,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var serverRoute = require('./routes/server');
+var spaRoute = require('./routes/spa');
+var spaApiRoute = require('./routes/spa-api');
 
 var app = express();
 
@@ -23,12 +27,14 @@ app.engine('.hbs', expressHandlebars({
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/server', serverRoute);
+app.use('/spa', spaRoute);
+app.use('/api', spaApiRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

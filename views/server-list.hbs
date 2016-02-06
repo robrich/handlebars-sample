@@ -1,0 +1,21 @@
+<p>Server List</p>
+
+<p><a href="/server/add">add</a></p>
+<table border="1">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>active</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data}}
+      <tr>
+        <td><a href="/server/{{id}}">{{id}}</a></td>
+        <td>{{name}}</td>
+        <td>{{active}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

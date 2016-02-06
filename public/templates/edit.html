@@ -1,0 +1,17 @@
+{{#if isNew}}
+    <h2>Add new</h2>
+{{else}}
+    <h2>Edit {{data.id}}</h2>
+{{/if}}
+
+<form action="#" method="POST" {{#if isNew}}class="addForm"{{else}}class="editForm"{{/if}}>
+    <input type="hidden" name="id" id="id" value="{{data.id}}" />
+
+    <label for="name">name</label>
+    <input type="text" name="name" id="name" value="{{data.name}}" maxlength="20" required focus /><br />
+
+    <input type="checkbox" name="active" id="active" {{#if data.active}}checked{{/if}} />
+    <label for="active">active</label><br />
+
+    <input type="submit" value="save" />
+</form>
