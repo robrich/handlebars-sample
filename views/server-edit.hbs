@@ -2,7 +2,7 @@
   <label for="name">name</label>
   <input type="text" name="name" id="name" value="{{data.name}}" maxlength="20" required focus /><br />
 
-  <input type="checkbox" name="active" id="active" {{#if data.active}}checked{{/if}} />
+  <input type="checkbox" name="active" id="active" {{#if data.active}}checked{{/if}} value="true" />
   <label for="active">active</label><br />
 
   <input type="submit" value="save" />
